@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0708">
+  <meta name="description" content="«Одной из» — тёмный принц. Текст песни и маленькое признание.">
+  <meta property="og:title" content="Одной из — тёмный принц">
+  <meta property="og:description" content="Текст песни, который листается вместе с музыкой.">
+  <meta property="og:type" content="music.song">
+  <meta property="og:image" content="main img/image.jpg">
+  <title>Одной из — тёмный принц</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0708'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23d99aa6' stroke-width='2'/%3E%3Cpath d='M27 23l16 9-16 9z' fill='%23f3ebe5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style/fonts.css">
+  <link rel="stylesheet" href="style/main.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="bg__blob bg__blob--one"></span>
+    <span class="bg__blob bg__blob--two"></span>
+  </div>
+  <canvas class="motes" id="motes" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Экран-открытка -->
+  <section class="intro" id="intro" aria-labelledby="intro-title">
+    <div class="intro__inner">
+      <p class="intro__eyebrow">
+        <span class="rule" aria-hidden="true"></span>
+        для тебя
+        <span class="rule" aria-hidden="true"></span>
+      </p>
+
+      <button class="intro__play" id="openBtn" type="button" aria-label="Открыть текст песни и включить трек">
+        <span class="intro__glow" aria-hidden="true"></span>
+        <span class="intro__rings" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="intro__core">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.4 5.4v13.2L18.4 12 6.4 5.4Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="intro__flash" aria-hidden="true"></span>
+      </button>
+
+      <h1 class="intro__title" id="intro-title">Одной&nbsp;из</h1>
+      <p class="intro__artist">тёмный принц</p>
+      <p class="intro__hint">нажми, чтобы услышать</p>
+    </div>
+  </section>
+
+  <!-- Сцена: диск + текст песни -->
+  <main class="scene" id="scene" aria-labelledby="lyrics-title" inert>
+    <div class="scene__grid">
+      <div class="visual">
+        <div class="disc-wrap">
+          <span class="disc-glow" aria-hidden="true"></span>
+          <span class="disc-ring" aria-hidden="true"></span>
+          <button class="disc" type="button" data-toggle aria-label="Пауза" title="Пауза">
+            <img class="disc__img" src="main img/image.jpg" alt="Обложка трека «Одной из» — компакт-диск с алыми розами" width="735" height="735">
+            <span class="disc__hole" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="now">
+          <h2 class="now__title">Одной из</h2>
+          <p class="now__artist">тёмный принц</p>
+
+          <div class="now__bar">
+            <button class="mini" type="button" data-toggle aria-label="Пауза">
+              <svg class="icon icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.7 5.4v13.2L19.6 12 8.7 5.4Z" fill="currentColor"/></svg>
+              <svg class="icon icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7.4" y="5.5" width="3.2" height="13" rx="1.6" fill="currentColor"/><rect x="13.4" y="5.5" width="3.2" height="13" rx="1.6" fill="currentColor"/></svg>
+            </button>
+
+            <div class="progress" id="progress" role="slider" tabindex="0" aria-label="Перемотка трека" aria-valuemin="0" aria-valuemax="165" aria-valuenow="0">
+              <span class="progress__fill" data-progress></span>
+            </div>
+
+            <span class="now__time" data-time>0:00 / 2:45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage">
+        <section class="lyrics" id="lyrics-panel" aria-labelledby="lyrics-title">
+          <div class="lyrics__head">
+            <p class="lyrics__eyebrow" id="lyrics-title">
+              <span class="lyrics__dot" aria-hidden="true"></span>
+              текст песни
+            </p>
+            <!-- <span class="lyrics__hint" aria-hidden="true">листается вместе с треком</span> -->
+          </div>
+
+          <div class="lyrics__viewport" id="lyricsViewport">
+            <div class="lyrics__track" id="lyricsTrack">
+              <p class="lyric lyric--tag" data-time="0">Cities · Danger</p>
+
+              <p class="lyric" data-time="14.56">Там, где всё ненастоящее,</p>
+              <p class="lyric" data-time="18.76">навряд ли станет красивым</p>
+              <p class="lyric" data-time="22.96">Просто убей меня спящим —</p>
+              <p class="lyric" data-time="25.26">это невыносимо, это невыносимо</p>
+              <p class="lyric" data-time="31.18">Почему в космосе тихо так,</p>
+              <p class="lyric" data-time="35.02">что не слышу твой голос?</p>
+              <p class="lyric" data-time="39.26">Но на одной из планет, я уверен,</p>
+              <p class="lyric" data-time="42.88">когда-то мы встретимся снова</p>
+
+              <p class="lyric" data-time="47.66">На одной из планет я буду курить,</p>
+              <p class="lyric" data-time="52.6">и я буду ждать тебя</p>
+              <p class="lyric" data-time="55.6">И миллион световых не смогут забыть —</p>
+              <p class="lyric" data-time="61.02">ты пиздец красивая</p>
+              <p class="lyric" data-time="64.6">На одной из планет я буду курить,</p>
+              <p class="lyric" data-time="68.58">и я буду ждать тебя</p>
+              <p class="lyric" data-time="72.6">Но на одной из планет,</p>
+              <p class="lyric" data-time="75.06">одной из планет,</p>
+              <p class="lyric" data-time="76.92">одной из планет</p>
+
+              <p class="lyric" data-time="83.5">У-у, я пью в космическом шаттле</p>
+              <p class="lyric" data-time="90.66">Я знаю: нет вариантов добраться домой</p>
+              <p class="lyric" data-time="96.36">Я мёртвый смотрю на огонь —</p>
+              <p class="lyric" data-time="99.8">это убийственно тяжко</p>
+              <p class="lyric" data-time="103.68">Скажи мне, что всё нормально,</p>
+              <p class="lyric" data-time="107.68">скажи мне, что ты рядом</p>
+              <p class="lyric" data-time="112.58">Это последний раз, когда я дышу скафандром</p>
+
+              <p class="lyric" data-time="115.88">На одной из планет я буду курить,</p>
+              <p class="lyric" data-time="118.7">и я буду ждать тебя</p>
+              <p class="lyric" data-time="125.1">И миллион световых не смогут забыть —</p>
+              <p class="lyric" data-time="129.28">ты пиздец красивая</p>
+              <p class="lyric" data-time="133.3">На одной из планет я буду курить,</p>
+              <p class="lyric" data-time="135.26">и я буду ждать тебя</p>
+              <p class="lyric" data-time="139.84">Но на одной из планет,</p>
+              <p class="lyric" data-time="142.6">одной из планет,</p>
+              <p class="lyric" data-time="145">одной из планет</p>
+
+              <p class="lyric lyric--tag" data-time="158">Eight</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="gift" id="gift">
+          <p class="gift__hint" aria-hidden="true">Нажми :)</p>
+          <svg class="gift__arrow" viewBox="0 0 98 30" aria-hidden="true">
+            <path class="gift__arrow-line" d="M4 4C26 21 66 25 94 21" />
+            <path class="gift__arrow-head" d="M84 16.4L94 21L85.7 28.2" />
+          </svg>
+          <button class="postcard" id="postcard" type="button" aria-label="Открыть открытку с признанием" aria-expanded="false" aria-controls="note">
+            <span class="postcard__border" aria-hidden="true"></span>
+            <span class="postcard__seal" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20.2S4.4 15.5 4.4 10.6A4.2 4.2 0 0 1 12 8.2a4.2 4.2 0 0 1 7.6 2.4c0 4.9-7.6 9.6-7.6 9.6Z" fill="currentColor"/></svg>
+            </span>
+            <span class="postcard__label">для тебя</span>
+          </button>
+        </div>
+
+        <section class="note" id="note" aria-labelledby="note-title" aria-hidden="true" inert>
+          <button class="note__close" id="noteClose" type="button" aria-label="Закрыть открытку">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </button>
+
+          <div class="note__scroll" id="noteScroll">
+            <p class="note__eyebrow"> · письмо · </p>
+            <h2 class="note__title" id="note-title">Ты — та самая<br><em>«одна из»</em></h2>
+
+            <div class="note__body">
+              <p>Я не мастер красивых слов.<br>Поэтому просто включаю этот трек —<br>и надеюсь, что он скажет за меня.</p>
+              <p>Среди сотен лиц<br>и тысяч случайных дней<br>я каждый раз выбираю одну.<br><em>Тебя.</em></p>
+              <p>Не за что-то.<br>Не потому, что так правильно.<br>А потому, что рядом с тобой<br>даже тишина звучит иначе.</p>
+              <p>В твоём смехе есть свет,<br>который я узнаю из тысячи.<br>А в твоих глазах — место,<br>куда хочется возвращаться.</p>
+              <p>Эта песня не про ночь.<br>Она про то, как ты появляешься —<br>и весь мир становится тише,<br>чтобы тебя было слышно.</p>
+              <p class="note__strong">Одной из.<br>Одной.<br><em>Единственной.</em></p>
+              <p>Если бы я мог подарить тебе<br>что-то большее, чем музыка,<br>я бы подарил тебе время.<br>Всё своё. Без остатка.</p>
+              <p>Слушай до конца.<br>Там, за последним аккордом, — я.<br>С сердцем в ладонях.</p>
+            </div>
+
+            <p class="note__sign">
+              с любовью,<br>
+              <em>тот, кто думает о тебе</em>
+              <svg class="note__heart" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 20.2S4.4 15.5 4.4 10.6A4.2 4.2 0 0 1 12 8.2a4.2 4.2 0 0 1 7.6 2.4c0 4.9-7.6 9.6-7.6 9.6Z" fill="currentColor"/>
+              </svg>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <audio id="track" src="audio/тёмный принц - Одной из.mp3" preload="metadata"></audio>
+
+  <script src="script/index.js"></script>
+</body>
+</html>
